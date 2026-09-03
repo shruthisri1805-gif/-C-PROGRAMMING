@@ -1,0 +1,53 @@
+# 7. PSEUDOCODE
+
+BEGIN
+
+```
+DECLARE vehicle records
+
+LOAD records from file
+
+REPEAT
+
+    DISPLAY main menu
+
+    READ user choice
+
+    SWITCH choice
+
+        CASE 1:
+            Add new customer and vehicle record
+
+        CASE 2:
+            Display all records
+
+        CASE 3:
+            Search record using registration number
+
+        CASE 4:
+            Modify existing record
+
+        CASE 5:
+            Delete existing record
+
+        CASE 6:
+            Calculate total service expenses
+
+        CASE 7:
+            Display maintenance reminders
+
+        CASE 8:
+            Save records to file
+
+        CASE 9:
+            Exit program
+
+        DEFAULT:
+            Display invalid choice
+
+    END SWITCH
+
+UNTIL choice = 9
+```
+
+END
