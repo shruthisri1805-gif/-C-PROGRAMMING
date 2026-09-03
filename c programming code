@@ -1,0 +1,142 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX 100
+
+typedef struct
+{
+    char customerID[20];
+    char customerName[50];
+    char contactNumber[20];
+
+    char registrationNumber[20];
+    char carModel[50];
+    int manufactureYear;
+
+    char serviceDate[20];
+    char serviceType[50];
+    int mileage;
+    float serviceCost;
+    char remarks[100];
+
+    char partName[50];
+    int quantity;
+    float partCost;
+    char replacementDate[20];
+    int replacementInterval;
+
+} CarService;
+
+CarService records[MAX];
+int count = 0;
+
+/* Function Prototypes */
+
+void addRecord();
+void displayRecords();
+void searchRecord();
+void modifyRecord();
+void deleteRecord();
+void totalServiceExpense();
+void maintenanceReminder();
+void saveToFile();
+void loadFromFile();
+
+/* Add Record */
+
+void addRecord()
+{
+    if (count >= MAX)
+    {
+        printf("\nStorage Full!\n");
+        return;
+    }
+
+    printf("\n----- ADD CUSTOMER AND VEHICLE RECORD -----\n");
+
+    printf("Enter Customer ID: ");
+    scanf("%s", records[count].customerID);
+
+    printf("Enter Customer Name: ");
+    scanf(" %[^\n]", records[count].customerName);
+
+    printf("Enter Contact Number: ");
+    scanf("%s", records[count].contactNumber);
+
+    printf("Enter Registration Number: ");
+    scanf("%s", records[count].registrationNumber);
+
+    printf("Enter Car Model: ");
+    scanf(" %[^\n]", records[count].carModel);
+
+    printf("Enter Manufacturing Year: ");
+    scanf("%d", &records[count].manufactureYear);
+
+    printf("\n----- SERVICE DETAILS -----\n");
+
+    printf("Enter Service Date (DD/MM/YYYY): ");
+    scanf("%s", records[count].serviceDate);
+
+    printf("Enter Service Type: ");
+    scanf(" %[^\n]", records[count].serviceType);
+
+    printf("Enter Mileage: ");
+    scanf("%d", &records[count].mileage);
+
+    printf("Enter Service Cost: ");
+    scanf("%f", &records[count].serviceCost);
+
+    printf("Enter Remarks: ");
+    scanf(" %[^\n]", records[count].remarks);
+
+    printf("\n----- SPARE PART DETAILS -----\n");
+
+    printf("Enter Part Name: ");
+    scanf(" %[^\n]", records[count].partName);
+
+    printf("Enter Quantity: ");
+    scanf("%d", &records[count].quantity);
+
+    printf("Enter Part Cost: ");
+    scanf("%f", &records[count].partCost);
+
+    printf("Enter Replacement Date: ");
+    scanf("%s", records[count].replacementDate);
+
+    printf("Enter Recommended Replacement Interval (days): ");
+    scanf("%d", &records[count].replacementInterval);
+
+    count++;
+
+    printf("\nRecord Added Successfully!\n");
+}
+
+/* Display Records */
+
+void displayRecords()
+{
+    int i;
+
+    if (count == 0)
+    {
+        printf("\nNo Records Available!\n");
+        return;
+    }
+
+    printf("\n========== ALL VEHICLE RECORDS ==========\n");
+
+    for (i = 0; i < count; i++)
+    {
+        printf("\nRecord %d\n", i + 1);
+
+        printf("Customer ID: %s\n", records[i].customerID);
+        printf("Customer Name: %s\n", records[i].customerName);
+        printf("Contact: %s\n", records[i].contactNumber);
+
+        printf("Registration Number: %s\n",
+               records[i].registrationNumber);
+
+        printf("Car Model: %s\n", records[i].carModel);
+        printf("Manufacturing Year: %d\n",
+               records[i].manufactureYear);
